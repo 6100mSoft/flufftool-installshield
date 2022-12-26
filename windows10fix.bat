@@ -1,105 +1,109 @@
 @echo off
-setlocal EnableExtensions
-
-:: BatchGotAdmin
-:-------------------------------------
+REM setlocal EnableExtensions
+REM 
+REM :: BatchGotAdmin
+REM :-------------------------------------
 REM  --> Check for permissions
-    IF "%PROCESSOR_ARCHITECTURE%" EQU "amd64" (
->nul 2>&1 "%SYSTEMROOT%\SysWOW64\cacls.exe" "%SYSTEMROOT%\SysWOW64\config\system"
-) ELSE (
->nul 2>&1 "%SYSTEMROOT%\system32\cacls.exe" "%SYSTEMROOT%\system32\config\system"
-)
-
+REM     IF "%PROCESSOR_ARCHITECTURE%" EQU "amd64" (
+REM >nul 2>&1 "%SYSTEMROOT%\SysWOW64\cacls.exe" "%SYSTEMROOT%\SysWOW64\config\system"
+REM ) ELSE (
+REM >nul 2>&1 "%SYSTEMROOT%\system32\cacls.exe" "%SYSTEMROOT%\system32\config\system"
+REM )
+REM 
 REM --> If error flag set, we do not have admin.
-if '%errorlevel%' NEQ '0' (
-    echo Requesting administrative privileges...
-    goto UACPrompt
-) else ( goto gotAdmin )
+REM if '%errorlevel%' NEQ '0' (
+REM     echo Requesting administrative privileges...
+REM     goto UACPrompt
+REM ) else ( goto gotAdmin )
+REM 
+REM :UACPrompt
+REM     echo Set UAC = CreateObject^("Shell.Application"^) > "%temp%\getadmin.vbs"
+REM     set params= %*
+REM     echo UAC.ShellExecute "cmd.exe", "/c ""%~s0"" %params:"=""%", "", "runas", 1 >> "%temp%\getadmin.vbs"
+REM 
+REM     "%temp%\getadmin.vbs"
+REM     del "%temp%\getadmin.vbs"
+REM     exit /B
+REM 
+REM :gotAdmin
+REM     pushd "%CD%"
+REM     CD /D "%~dp0"
+REM :--------------------------------------
 
-:UACPrompt
-    echo Set UAC = CreateObject^("Shell.Application"^) > "%temp%\getadmin.vbs"
-    set params= %*
-    echo UAC.ShellExecute "cmd.exe", "/c ""%~s0"" %params:"=""%", "", "runas", 1 >> "%temp%\getadmin.vbs"
-
-    "%temp%\getadmin.vbs"
-    del "%temp%\getadmin.vbs"
-    exit /B
-
-:gotAdmin
-    pushd "%CD%"
-    CD /D "%~dp0"
-:--------------------------------------
-
-:: Customize Window
-title Install Mobiclip Tool Error Fix
-
-:: Menu Options
-:: Specify as many as you want, but they must be sequential from 1 with no gaps
-:: Step 1. List the Application Names
-set "App[1]=Install"
-set "App[2]=Uninstall"
-
-:: Display the Menu
-set "Message="
-:Menu
-cls
-echo.%Message%
-echo.
-echo.  Install Mobiclip Tool Error Fix
-echo.
-set "x=0"
-:MenuLoop
-set /a "x+=1"
-if defined App[%x%] (
-    call echo   %x%. %%App[%x%]%%
-    goto MenuLoop
-)
-echo.
-
-:: Prompt User for Choice
-:Prompt
-set "Input="
-set /p "Input=Select option:"
-
-:: Validate Input [Remove Special Characters]
-if not defined Input goto Prompt
-set "Input=%Input:"=%"
-set "Input=%Input:^=%"
-set "Input=%Input:<=%"
-set "Input=%Input:>=%"
-set "Input=%Input:&=%"
-set "Input=%Input:|=%"
-set "Input=%Input:(=%"
-set "Input=%Input:)=%"
-:: Equals are not allowed in variable names
-set "Input=%Input:^==%"
-call :Validate %Input%
-
-:: Process Input
-call :Process %Input%
-goto End
-
-
-:Validate
-set "Next=%2"
-if not defined App[%1] (
-    set "Message=Invalid Input: %1"
-    goto Menu
-)
-if defined Next shift & goto Validate
-goto :eof
-
-
-:Process
-set "Next=%2"
-call set "App=%%App[%1]%%"
-
-:: Run Installations
-:: Specify all of the installations for each app.
-:: Step 2. Match on the application names and perform the installation for each
-if "%App%" EQU "Install" sdbinst -p "mct.sdb"
-if "%App%" EQU "Uninstall" sdbinst -n "Mobiclip Tool"
-
+REM :: Customize Window
+REM title Install Mobiclip Tool Error Fix
+REM 
+REM :: Menu Options
+REM :: Specify as many as you want, but they must be sequential from 1 with no gaps
+REM :: Step 1. List the Application Names
+REM set "App[1]=Install"
+REM set "App[2]=Uninstall"
+REM 
+REM :: Display the Menu
+REM set "Message="
+REM :Menu
+REM cls
+REM echo.%Message%
+REM echo.
+REM echo.  Install Mobiclip Tool Error Fix
+REM echo.
+REM set "x=0"
+REM :MenuLoop
+REM set /a "x+=1"
+REM if defined App[%x%] (
+REM     call echo   %x%. %%App[%x%]%%
+REM     goto MenuLoop
+REM )
+REM echo.
+REM 
+REM :: Prompt User for Choice
+REM :Prompt
+REM set "Input="
+REM set /p "Input=Select option:"
+REM 
+REM :: Validate Input [Remove Special Characters]
+REM if not defined Input goto Prompt
+REM set "Input=%Input:"=%"
+REM set "Input=%Input:^=%"
+REM set "Input=%Input:<=%"
+REM set "Input=%Input:>=%"
+REM set "Input=%Input:&=%"
+REM set "Input=%Input:|=%"
+REM set "Input=%Input:(=%"
+REM set "Input=%Input:)=%"
+REM :: Equals are not allowed in variable names
+REM set "Input=%Input:^==%"
+REM call :Validate %Input%
+REM 
+REM :: Process Input
+REM call :Process %Input%
+REM goto End
+REM 
+REM 
+REM :Validate
+REM set "Next=%2"
+REM if not defined App[%1] (
+REM     set "Message=Invalid Input: %1"
+REM     goto Menu
+REM )
+REM if defined Next shift & goto Validate
+REM goto :eof
+REM 
+REM 
+REM :Process
+REM set "Next=%2"
+REM call set "App=%%App[%1]%%"
+REM 
+REM :: Run Installations
+REM :: Specify all of the installations for each app.
+REM :: Step 2. Match on the application names and perform the installation for each
+REM if "%App%" EQU "Install" sdbinst -p "mct.sdb"
+REM if "%App%" EQU "Uninstall" sdbinst -n "Mobiclip Tool"
+REM 
+mkdir C:\Mobiclip\
+xcopy "%~dp0\mct.sdb" C:\Mobiclip\
+sdbinst -p "C:\Mobiclip\mct.sdb"
 echo Finished.
-endlocal
-pause
+REM endlocal
+REM pause
+exit

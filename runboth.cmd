@@ -1,3 +1,4 @@
-call %~dp0\install.cmd
-call %~dp0\windows10fix.cmd
+call "%~dp0setpath.cmd"
+call "%~dp0windows10fix.bat"
+pause
 exit
