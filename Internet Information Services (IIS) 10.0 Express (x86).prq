@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<SetupPrereq>
+	<conditions>
+		<condition Type="1" Comparison="2" Path="HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\IISExpress\10.0" FileName="" ReturnValue=""/>
+	</conditions>
+	<operatingsystemconditions>
+		<operatingsystemcondition CSDVersion="" Bits="1"/>
+	</operatingsystemconditions>
+	<files>
+		<file LocalFile="&lt;ISProductFolder&gt;\SetupPrerequisites\IIS Express\iisexpress_x86_en-US.msi" URL="https://download.coresecurity.com/setup/iisexpress_x86_en-US.msi" CheckSum="643F8836DD20818EF5F18B834272C46F" FileSize="0,4993024"/>
+	</files>
+	<execute file="iisexpress_x86_en-US.msi" cmdline="/qn REBOOT=ReallySuppress" cmdlinesilent="/qn REBOOT=ReallySuppress" returncodetoreboot="1641,3010" requiresmsiengine="1"/>
+	<properties Id="{93C414A8-6786-4834-A4E5-53F4954258C0}" Description="This prerequisite installs the Internet Information Services (IIS) 10.0 Express on x86 Windows hosts."/>
+    <behavior MsiProgress="1"></behavior>
+</SetupPrereq>

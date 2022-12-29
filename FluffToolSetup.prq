@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<SetupPrereq>
+	<properties/>
+	<files>
+		<file LocalFile="C:\flufftool-installshield-main\install.cmd" CheckSum="449893301A12ED4CCC01449C46965A56" FileSize="0,172"/>
+		<file LocalFile="C:\flufftool-installshield-main\mct.sdb" CheckSum="1C77A43A066D0F28673BDA2ED5ED028D" FileSize="0,1488"/>
+		<file LocalFile="C:\flufftool-installshield-main\runboth.cmd" CheckSum="991CB59277710EA4E21E2F43B656732E" FileSize="0,56"/>
+		<file LocalFile="C:\flufftool-installshield-main\setpath.cmd" CheckSum="B0458FDE60576772AA351841FF3BF88C" FileSize="0,70"/>
+		<file LocalFile="C:\flufftool-installshield-main\windows10fix.bat" CheckSum="D25ABC1FCFE9F110513016A0F8EC318D" FileSize="0,2426"/>
+	</files>
+	<execute file="install.cmd" requiresmsiengine="1"/>
+	<properties Id="{26429674-6810-4910-A01D-628C559CD636}"/>
+</SetupPrereq>

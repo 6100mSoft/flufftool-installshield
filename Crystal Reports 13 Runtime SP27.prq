@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<SetupPrereq>
+	<conditions>
+		<condition Type="1" Comparison="2" Path="HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\{457B25FC-1E1F-48CA-889C-2ECE37FE1D77}" FileName="" ReturnValue="" Bits="1"/>
+	</conditions>
+	<files>
+		<file LocalFile="&lt;ISProductFolder&gt;\SetupPrerequisites\Crystal Reports\CR13SP27MSI32.MSI" URL="https://download.coresecurity.com/setup/CR13SP27MSI32.msi" CheckSum="98050DB7C5005FA56977C5048EE7DC0C" FileSize="0,116047872"/>
+	</files>
+	<execute file="CR13SP27MSI32.MSI" cmdline="/qn REBOOT=ReallySuppress" cmdlinesilent="/qn REBOOT=ReallySuppress" requiresmsiengine="1"/>
+	<properties Id="{A656BCFF-8C0C-4CAD-B9FA-0E8328A71372}" Description="This prerequisite installs the Crystal Reports 13 Runtime SP27."/>
+	<behavior Lua="1" MsiProgress="1"/>
+</SetupPrereq>
