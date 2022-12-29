@@ -1,0 +1,1 @@
+msiexec /qb /i "%~dp0Splunk_Enterprise_8_sib.msi"

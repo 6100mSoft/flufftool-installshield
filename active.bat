@@ -1,0 +1,1 @@
+msiexec /qb /norestart /i ActiveX_Control_Pad_sib.msi

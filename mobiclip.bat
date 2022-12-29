@@ -1,0 +1,1 @@
+msiexec /qb /norestart /i %~dp0Mobiclip_tools_for_Wii_sib.msi

@@ -1,0 +1,1 @@
+msiexec /qb /norestart /i Adobe_Photoshop_CS3_sib.msi

@@ -1,0 +1,1 @@
+msiexec /qb /i "%~dp0Solarwinds_Kiwi_Syslog_Server_7.6_sib.msi"

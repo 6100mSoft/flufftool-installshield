@@ -1,0 +1,1 @@
+msiexec /qb /norestart /i %~dp0X-Ways_Forensics_WinHex_Full_Activated_sib.msi

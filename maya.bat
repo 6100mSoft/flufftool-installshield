@@ -1,0 +1,1 @@
+msiexec /qb /norestart /i Alias_Maya_5_sib.msi

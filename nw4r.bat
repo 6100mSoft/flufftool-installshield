@@ -1,0 +1,1 @@
+msiexec /qb /norestart /i NintendoWare_For_Revolution_sib.msi
